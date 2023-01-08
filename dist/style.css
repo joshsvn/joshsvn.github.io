@@ -1,0 +1,225 @@
+:root {  
+  --bg-color: rgb(0,0,0);
+  --text-color: rgb(255,255,255);
+  --green: rgb(42, 252, 152);
+  --blue: rgb(41, 121, 255);
+  --g1: rgb(123,31,162);
+  --g2: rgb(103,58,183);
+  --g3: rgb(244,143,177)
+}
+
+.lightMode {
+
+
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+@keyframes float {
+  from, to {
+    transform: translateY(-0%);
+  }
+  
+  50% {    
+    transform: translateY(-3%);
+  }
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 1000% center;
+  }
+  
+  to {
+    background-position: 0% center;
+  }
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg-color);
+  margin: 0rem;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.word {
+  color: var(--text-color);
+  font-size: clamp(2rem, 8vw, 10rem);
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  margin: 0rem;
+  text-transform: uppercase;
+  transition: opacity 250ms ease;
+}
+
+.word-small {
+  color: var(--text-color);
+  font-size: clamp(1rem, 3vw, 5rem);
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  margin: 0rem;
+  text-transform: uppercase;
+  transition: opacity 250ms ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+#text:has(.fancy:hover) .word-small:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+.fancy span {
+  display: inline-block;
+}
+
+.fancy > .outer {
+  transition: transform 350ms ease;
+}
+
+.fancy:hover > .outer {
+  transition-duration: 800ms;
+}
+
+.fancy:hover > .outer > .inner {
+  animation: float 5s ease infinite;
+}
+
+.fancy:hover > .outer > .inner > .letter {
+  background: linear-gradient(
+    to right,
+    var(--g1),
+    var(--g2),
+    var(--g1),
+    var(--g2),
+    var(--g3)
+  );
+  background-size: 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: background-pan 10s linear infinite;
+}
+
+.fancy:hover > .outer:nth-child(1) {
+  transform: translate(-60%, 20%) rotate(-8deg);
+}
+
+.fancy:hover > .outer:nth-child(2) {
+  transform: translate(-20%, 10%) rotate(4deg);
+}
+
+.fancy:hover > .outer:nth-child(3) {
+  transform: translate(-10%, 30%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(4) {
+  transform: translate(0%, 8%) rotate(-8deg);
+}
+
+.fancy:hover > .outer:nth-child(5) {
+  transform: translate(0%, -20%) rotate(5deg);
+}
+
+.fancy:hover > .outer:nth-child(6) {
+  transform: translate(0%, 20%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(7) {
+  transform: translate(0%, -20%) rotate(-5deg);
+}
+
+.fancy:hover > .outer:nth-child(8) {
+  transform: translate(0%, 15%) rotate(10deg);
+}
+
+.fancy:hover > .outer:nth-child(9) {
+  transform: translate(10%, -20%) rotate(-8deg);
+}
+
+.fancy:hover > .outer:nth-child(10) {
+  transform: translate(20%, -15%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(11) {
+  transform: translate(30%, -10%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(12) {
+  transform: translate(100%, -20%) rotate(5deg);
+}
+
+.fancy:hover > .outer:nth-child(13) {
+  transform: translate(55%, 0%) rotate(15deg);
+}
+
+.fancy:hover > .outer:nth-child(14) {
+  transform: translate(100%, -10%) rotate(-10deg);
+}
+
+.fancy:hover > .outer:nth-child(15) {
+  transform: translate(80%, 0%) rotate(-10deg);
+}
+
+body.light {
+  background-color: white;
+}
+
+body.light .word, body.light .word-small {
+  color: black;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #101010;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: white;}
+
+.fa-sun {color: white;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}

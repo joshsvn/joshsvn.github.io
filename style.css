@@ -16,7 +16,7 @@
   body {
     background-color: var(--background-colour);
     margin: 0px;
-    height: 180vh;
+    height: 100vh;
     overflow-x: hidden;
   }
   
@@ -94,7 +94,7 @@
   main {
     display: grid;
     height: 180vh;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     align-items: start;
@@ -225,10 +225,13 @@
   /* Social cards */
   .card {
     aspect-ratio: 1 / 1.6;
+    display: inline-flex;
     border: 0.5vmin solid var(--border);
     cursor: pointer;
     position: relative;
-    width: 56vmin;
+    width: 5vmin;
+    margin: 100px;
+    opacity: 0;
   }
   
   .card:hover:before {

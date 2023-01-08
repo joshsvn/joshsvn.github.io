@@ -88,6 +88,10 @@ a {
   opacity: 0.2;
 }
 
+#text:has(.fancy:hover) .checkbox-label:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
 .fancy span {
   display: inline-block;
 }

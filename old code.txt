@@ -1,4 +1,0 @@
-<h1>
-          <div id="quote"></div> <span class="magic"><a href="#" id="ending"></a></span>
-          <div id="speaker"></div>
-        </h1>

@@ -1,3 +1,12 @@
+if (Cookies.get("theme") == "light") {
+  document.getElementById('checkbox').checked = true
+  document.getElementsByTagName('body')[0].classList.add("light");
+}
+if (Cookies.get("theme") == "dark") {
+  document.getElementById('checkbox').checked = false
+  document.getElementsByTagName('body')[0].classList.remove("light");
+}
+
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const enhance = id => {
@@ -40,3 +49,12 @@ const checkbox = document.getElementById("checkbox")
 checkbox.addEventListener("change", () => {
   document.body.classList.toggle("light")
 })
+
+function setTheme() {
+  if (document.getElementById('checkbox').checked) {
+    Cookies.set("theme","light");
+  }
+  else {
+    Cookies.set("theme","dark");
+  }
+}
